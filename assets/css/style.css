@@ -1,0 +1,46 @@
+header {
+    text-align: center;
+    background-color: #3232bd;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+}
+
+#cityPanel {
+    justify-content: flex-start;
+    padding: 10px;
+    align-items: flex-start;
+    width: 25vw;
+    flex-direction: column;
+}
+
+#mainWeatherWindow {
+    justify-content: flex-end;
+    width: 70vw;
+    border: solid;
+    border-width: 2px;
+}
+
+#fiveDayForcast {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 60vw;
+}
+
+#searchBtn {
+    background-color: #3232bd;
+    color: white;
+}
