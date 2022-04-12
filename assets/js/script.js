@@ -16,12 +16,13 @@ let fiveDayHumidity = document.querySelectorAll(".card-humidity");
 // pulls in weather data from the openweathermap.org api and pulls the location data based on the name of the city to generate the weather data
 function pullWeatherData(city) {
   fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
+      console.log(geoData);
       return fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${geoData.coord.lat}&lon=${geoData.coord.lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
@@ -63,12 +64,12 @@ function displayWeatherData(city) {
 // displays the current weather data based on the entered city and displays it at the top of the page
 function displayCurrentWeather(city) {
   fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
       return fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${geoData.coord.lat}&lon=${geoData.coord.lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
@@ -82,12 +83,12 @@ function displayCurrentWeather(city) {
 
 function displayUVIndex(city) {
   fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
       return fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${geoData.coord.lat}&lon=${geoData.coord.lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
