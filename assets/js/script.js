@@ -16,12 +16,12 @@ let fiveDayHumidity = document.querySelectorAll(".card-humidity");
 // pulls in weather data from the openweathermap.org api and pulls the location data based on the name of the city to generate the weather data
 function pullWeatherData(city) {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
       return fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
@@ -51,11 +51,11 @@ function displayWeatherData(city) {
     fiveDayWind[j].innerText = "Wind: " + fiveDayWindEl[j] + " mph";
     fiveDayHumidity[j].innerText = "Humidity: " + fiveDayHumidityEl[j];
     if (fiveDayConditionEl[j] == "Clear") {
-      fiveDayCondition[j].src = "http://openweathermap.org/img/wn/01d@2x.png";
+      fiveDayCondition[j].src = "https://openweathermap.org/img/wn/01d@2x.png";
     } else if (fiveDayConditionEl[j] === "Clouds") {
-      fiveDayCondition[j].src = "http://openweathermap.org/img/wn/03d@2x.png";
+      fiveDayCondition[j].src = "https://openweathermap.org/img/wn/03d@2x.png";
     } else if (fiveDayConditionEl[j] == "Rain") {
-      fiveDayCondition[j].src = "http://openweathermap.org/img/wn/09d@2x.png";
+      fiveDayCondition[j].src = "https://openweathermap.org/img/wn/09d@2x.png";
     }
     j++;
   }
@@ -63,12 +63,12 @@ function displayWeatherData(city) {
 // displays the current weather data based on the entered city and displays it at the top of the page
 function displayCurrentWeather(city) {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
       return fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
@@ -82,12 +82,12 @@ function displayCurrentWeather(city) {
 
 function displayUVIndex(city) {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`
   )
     .then((response) => response.json())
     .then((geoData) => {
       return fetch(
-        `http://api.openweathermap.org/data/2.5/onecall?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${geoData[0].lat}&lon=${geoData[0].lon}&units=imperial&appid=${apiKey}`
       );
     })
     .then((response) => response.json())
