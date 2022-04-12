@@ -3,6 +3,9 @@ header {
     background-color: #3232bd;
     color: white;
 }
+p {
+    width: 150px;
+}
 
 h3 {
     text-align: center;
@@ -20,6 +23,11 @@ h3 {
 
 .highUV {
     background-color: red;
+}
+
+.card {
+    background-color: darkblue;
+    color: white;
 }
 
 #container {
@@ -41,15 +49,12 @@ h3 {
 #mainWeatherWindow {
     justify-content: flex-end;
     width: 70vw;
-    border: solid;
-    border-width: 2px;
 }
 
 #fiveDayForcast {
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    width: 60vw;
 }
 
 #searchBtn {
