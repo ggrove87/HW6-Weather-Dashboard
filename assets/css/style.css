@@ -10,6 +10,18 @@ h3 {
     align-items: flex-start;
 }
 
+.lowUV {
+    background-color: green;
+}
+
+.mediumUV {
+    background-color: yellow;
+}
+
+.highUV {
+    background-color: red;
+}
+
 #container {
     display: inline-flex;
     flex-wrap: wrap;
